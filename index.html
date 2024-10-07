@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peddy</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="">
+    <!-- component -->
+    <header
+      class="w-full lg:w-11/12 h-[155px] mx-auto header sticky top-0 bg-white flex items-center justify-between px-8 py-02 z-10"
+    >
+      <!-- logo -->
+      <div class="w-3/12 flex gap-4 items-center">
+        <img
+          class="h-[29px] w-[25px] object-fit: cover"
+          src="./images/logo.webp"
+          alt=""
+        />
+        <p class="text-[32px] font-black">Peddy</p>
+      </div>
+
+      <!-- spinner -->
+      <div id="loading" class="hidden">
+        <span class="loading loading-bars loading-lg"></span>
+      </div>
+
+      <!-- navigation -->
+      <nav class="nav text-md flex">
+        <ul class="flex items-center hidden md:inline-flex">
+          <li
+            class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active"
+          >
+            <a href="">Home</a>
+          </li>
+          <li
+            class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer"
+          >
+            <a href="">Shop</a>
+          </li>
+          <li
+            class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer"
+          >
+            <a href="">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- buttons --->
+      <div class="w-3/12 flex justify-end">
+        <a href="">
+          <?xml version="1.0" ?>
+          <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+          <svg
+            enable-background="new 0 0 32 32"
+            height="32px"
+            id="Layer_1"
+            version="1.1"
+            viewBox="0 0 32 32"
+            width="32px"
+            xml:space="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g id="profile_x2C__person">
+              <g>
+                <g>
+                  <g>
+                    <path
+                      d="M16,31C7.729,31,1,24.271,1,16S7.729,1,16,1s15,6.729,15,15S24.271,31,16,31z M16,2C8.28,2,2,8.28,2,16      s6.28,14,14,14s14-6.28,14-14S23.72,2,16,2z"
+                      fill="#263238"
+                    />
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g id="team_3_">
+                  <g>
+                    <g>
+                      <g>
+                        <g>
+                          <path
+                            d="M23.64,20.713l-4.762-1.652l-0.323-2.584c-0.215,0.307-0.523,0.546-0.924,0.671l0.293,2.345         c0.023,0.189,0.152,0.349,0.332,0.41l5.055,1.756c0.9,0.314,1.689,1.427,1.689,2.381v-0.007c0,0.276,0.224,0.5,0.5,0.5         c0.275,0,0.499-0.223,0.5-0.498C25.997,22.656,24.94,21.168,23.64,20.713z"
+                            fill="#263238"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <g>
+                        <g>
+                          <path
+                            d="M6.5,24.532c-0.276,0-0.5-0.224-0.5-0.5v0.007c0-1.379,1.059-2.871,2.359-3.326l4.762-1.641         l0.012-0.28c0.034-0.274,0.289-0.465,0.559-0.434c0.273,0.034,0.468,0.284,0.434,0.559l-0.051,0.589         c-0.023,0.189-0.153,0.348-0.333,0.41l-5.054,1.742C7.789,21.973,7,23.086,7,24.039v-0.007C7,24.309,6.776,24.532,6.5,24.532         z"
+                            fill="#263238"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <g>
+                        <g>
+                          <g>
+                            <path
+                              d="M16,18.039c-2.779,0-4.192-1.844-4.201-6.469c-0.002-1.174,0.123-2.363,1.227-3.469          C13.729,7.396,14.729,7.039,16,7.039s2.271,0.357,2.975,1.063c1.104,1.105,1.229,2.295,1.227,3.469          C20.192,16.195,18.779,18.039,16,18.039z M16,8.039c-1.009,0-1.75,0.252-2.267,0.769c-0.632,0.633-0.938,1.2-0.935,2.761          c0.008,4.018,1.055,5.471,3.201,5.471s3.193-1.453,3.201-5.471c0.003-1.561-0.303-2.128-0.935-2.761          C17.75,8.291,17.009,8.039,16,8.039z"
+                              fill="#263238"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </a>
+      </div>
+    </header>
+    <main class="w-full lg:w-11/12 mx-auto">
+      <!-- Hero Section -->
+      <section class="text-center p-8">
+        <!-- Top Heading -->
+        <div class="text-sm text-gray-600 mb-2">
+          Bringing Families Together ❤
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-4xl font-bold mb-4">
+          Your Path to Adoption <br />
+          Starts Here
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-gray-500 max-w-md mx-auto mb-6">
+          Find your new best friend today by adopting a pet in need. Explore our
+          network of shelters and rescues to make a difference.
+        </p>
+
+        <!-- Call to Action Button -->
+        <a
+          href="#best-friend"
+          class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition"
+        >
+          View More
+        </a>
+
+        <!-- Image Section -->
+        <div class="my-12">
+          <img
+            src="./images/pet.webp"
+            alt="Dog and Cat"
+            class="mx-auto max-w-full h-auto"
+          />
+        </div>
+
+        <!-- Subheading -->
+        <h2 id="best-friend" class="text-3xl font-semibold mb-4">
+          Adopt Your Best Friend
+        </h2>
+
+        <!-- Description -->
+        <p class="text-gray-500 max-w-lg mx-auto mb-6">
+          Our mission is to match loving homes with pets in need of adoption.
+          Give a dog, cat, rabbit, or bird a second chance today!
+        </p>
+
+        <!-- Categories Section -->
+        <div class="flex flex-wrap justify-center space-x-4 mb-6">
+          <button
+            onclick="loadCatagories('dog')"
+            class="bg-white w-[280px] border-2 border-slate-200 text-xl text-black font-bold p-6 rounded-lg flex items-center justify-center gap-4"
+          >
+            <img src="./images/dog.png" alt="Dog Icon" class="w-6 h-6" />
+            <span>Dogs</span>
+          </button>
+
+          <button
+            onclick="loadCatagories('cat')"
+            class="bg-white w-[280px] border-2 border-slate-200 text-xl text-black font-bold p-6 rounded-lg flex items-center justify-center gap-4 space-x-2"
+          >
+            <img src="./images/cat.png" alt="Cat Icon" class="w-6 h-6" />
+            <span>Cats</span>
+          </button>
+
+          <button
+            onclick="loadCatagories('rabbit')"
+            class="bg-white w-[280px] border-2 border-slate-200 text-xl text-black font-bold p-6 rounded-lg flex items-center justify-center gap-4 space-x-2"
+          >
+            <img src="./images/rabbit.png" alt="Rabbit Icon" class="w-6 h-6" />
+            <span>Rabbits</span>
+          </button>
+
+          <button
+            onclick="loadCatagories('bird')"
+            class="bg-white w-[280px] border-2 border-slate-200 text-xl text-black font-bold p-6 rounded-lg flex items-center justify-center gap-4 space-x-2"
+          >
+            <img src="./images/bird.png" alt="Bird Icon" class="w-6 h-6" />
+            <span>Birds</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- best deal section  -->
+      <section>
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">Best Deal For You</h2>
+          </div>
+          <div class="text-right mb-10">
+            <button
+              onclick="sortByPrice()"
+              id="sortbtn"
+              class="w-[178px] bg-teal-500 text-white px-6 py-3 rounded-xl hover:bg-teal-600 transition"
+            >
+              Sort By Price
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- pet cards -->
+      <section id="" class="flex mx-auto m-8">
+        <div
+          id="left-cards"
+          class="w-4/5 gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mr-6"
+        ></div>
+        <div
+          id="left-cards1"
+          class="hidden w-4/5 gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mr-6"
+        ></div>
+
+        <div
+          id="right-cards"
+          class="w-1/5 border-2 rounded-xl min-h-[900px] flex flex-wrap content-start"
+        ></div>
+      </section>
+
+      <!-- details modal -->
+      <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+      <dialog id="my_modal_1" class="modal" onload="detailsModalData()" on>
+        <div class="modal-box" id='detailsModal' >
+          <!-- <h3 class="text-lg font-bold">Hello!</h3>
+          <p class="py-4">Press ESC key or click the button below to close</p>
+          <div class="modal-action">
+            <form method="dialog">
+              <button class="btn" onclick="CloseDetailsModal()">Close</button>
+            </form>
+          </div> -->
+        </div>
+      </dialog>
+
+      <!-- Adopt modal -->
+       <dialog id="my_modal_2" class="modal" onload="detailsModalData()" on>
+        <div class="modal-box" id='detailsModal2' >
+          <!-- <h3 class="text-lg font-bold">Hello!</h3>
+          <p class="py-4">Press ESC key or click the button below to close</p>
+          <div class="modal-action">
+            <form method="dialog">
+              <button class="btn" onclick="CloseDetailsModal()">Close</button>
+            </form>
+          </div> -->
+        </div>
+      </dialog>
+
+    </main>
+
+    <footer class="bg-gray-900 text-white p-24">
+      <div class="container mx-auto flex flex-wrap justify-between">
+        <!-- Left Section -->
+        <div class="w-full md:w-1/3 mb-6">
+          <div class="flex gap-4 mb-3">
+            <img src="./images/logo.webp" alt="" />
+            <p class="text-xl font-bold">Pet Heaven</p>
+          </div>
+          <p class="mb-1">Location: av. Washington 165, NY CA 54003</p>
+          <p class="mb-1">Phone: +1 85 964 47 25</p>
+          <p class="mb-1">Email: info@yourdomain.com</p>
+          <p>Opening hours: 9:00 AM - 5:00 PM</p>
+          <div class="mt-4 flex space-x-4">
+            <a
+              href="https://www.facebook.com/"
+              class="text-gray-400 hover:text-teal-400"
+              ><img src="./images/facebook.png" alt=""
+            /></a>
+            <a href="https://x.com/" class="text-gray-400 hover:text-teal-400"
+              ><img src="./images/twitter.png" alt=""
+            /></a>
+            <a
+              href="https://www.youtube.com/"
+              class="text-gray-400 hover:text-teal-400"
+              ><img src="./images/youtube.png" alt=""
+            /></a>
+            <a
+              href="https://www.instagram.com/"
+              class="text-gray-400 hover:text-teal-400"
+              ><img src="./images/instagram (1).png" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <!-- Middle Section -->
+        <div class="w-full md:w-1/3 mb-6">
+          <h3 class="text-lg font-semibold mb-2">Useful Links</h3>
+          <ul>
+            <li class="mb-1">
+              <a href="#" class="text-gray-400 hover:text-teal-400">Home</a>
+            </li>
+            <li class="mb-1">
+              <a href="#" class="text-gray-400 hover:text-teal-400">About Us</a>
+            </li>
+            <li class="mb-1">
+              <a href="#" class="text-gray-400 hover:text-teal-400">Animals</a>
+            </li>
+            <li class="mb-1">
+              <a href="#" class="text-gray-400 hover:text-teal-400"
+                >Foundation</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-teal-400">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Section -->
+        <div class="w-full md:w-1/3 mb-6">
+          <h3 class="text-lg font-semibold mb-2">Drop a Message</h3>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="w-[240px] p-2 bg-slate-500 mb-2 border border-gray-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+          <button
+            class="w-[240px] bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <script src="pets2.js"></script> -->
+    <!-- <script src="saikat.js"></script> -->
+    <script src="./peddy.js"></script>
+  </body>
+</html>
