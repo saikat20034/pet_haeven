@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Peddy</title>
+    <title>Love Pets</title>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css"
       rel="stylesheet"
@@ -15,7 +15,7 @@
   <body class="">
     <!-- component -->
     <header
-      class="w-full lg:w-11/12 h-[155px] mx-auto header sticky top-0 bg-white flex items-center justify-between px-8 py-02 z-10"
+      class="w-full lg:w-11/12 md:h-[155px] h-[100px] mx-auto header sticky top-0 bg-white flex items-center justify-between px-8 py-02 z-10"
     >
       <!-- logo -->
       <div class="w-3/12 flex gap-4 items-center">
@@ -27,10 +27,6 @@
         <p class="text-[32px] font-black">Peddy</p>
       </div>
 
-      <!-- spinner -->
-      <div id="loading" class="hidden">
-        <span class="loading loading-bars loading-lg"></span>
-      </div>
 
       <!-- navigation -->
       <nav class="nav text-md flex">
@@ -131,18 +127,18 @@
       <!-- Hero Section -->
       <section class="text-center p-8">
         <!-- Top Heading -->
-        <div class="text-sm text-gray-600 mb-2">
+        <div class="text-base font-bold text-[#131313] md:mb-8 mb-2">
           Bringing Families Together ❤
         </div>
 
         <!-- Main Heading -->
-        <h1 class="text-4xl font-bold mb-4">
+        <h1 class="md:text-7xl text-3xl text-[#131313] font-black mb-4">
           Your Path to Adoption <br />
           Starts Here
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-gray-500 max-w-md mx-auto mb-6">
+        <p class="text-[#131313] font-normal text-base max-w-md mx-auto mb-6">
           Find your new best friend today by adopting a pet in need. Explore our
           network of shelters and rescues to make a difference.
         </p>
@@ -150,7 +146,7 @@
         <!-- Call to Action Button -->
         <a
           href="#best-friend"
-          class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition"
+          class="bg-teal-500 text-[20px] font-bold text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition"
         >
           View More
         </a>
@@ -165,19 +161,18 @@
         </div>
 
         <!-- Subheading -->
-        <h2 id="best-friend" class="text-3xl font-semibold mb-4">
+        <h2 id="best-friend" class="text-[40px] font-black text-black mb-4">
           Adopt Your Best Friend
         </h2>
 
         <!-- Description -->
-        <p class="text-gray-500 max-w-lg mx-auto mb-6">
-          Our mission is to match loving homes with pets in need of adoption.
-          Give a dog, cat, rabbit, or bird a second chance today!
+        <p class="text-gray-500 text-base  max-w-lg mx-auto mb-6">
+         It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.
         </p>
 
         <!-- Categories Section -->
-        <div class="flex flex-wrap justify-center space-x-4 mb-6">
-          <button
+        <div id="category" class="flex flex-wrap justify-center md:space-y-0 space-y-4 md:space-x-4 mb-6">
+          <!-- <button
             onclick="loadCatagories('dog')"
             class="bg-white w-[280px] border-2 border-slate-200 text-xl text-black font-bold p-6 rounded-lg flex items-center justify-center gap-4"
           >
@@ -207,13 +202,13 @@
           >
             <img src="./images/bird.png" alt="Bird Icon" class="w-6 h-6" />
             <span>Birds</span>
-          </button>
+          </button> -->
         </div>
       </section>
 
       <!-- best deal section  -->
       <section>
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col md:flex-row items-center justify-between px-4">
           <div>
             <h2 class="text-3xl font-bold mb-6">Best Deal For You</h2>
           </div>
@@ -230,7 +225,11 @@
       </section>
 
       <!-- pet cards -->
-      <section id="" class="flex mx-auto m-8">
+      <section id="" class="flex mx-auto my-8 px-4 items-start">
+          <!-- spinner -->
+      <div id="loading" class="hidden w-full flex justify-center py-4">
+        <span class="loading loading-bars loading-lg"></span>
+      </div>
         <div
           id="left-cards"
           class="w-4/5 gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mr-6"

@@ -1,4 +1,31 @@
 // fetch and show all card on homepage
+const loadIcon = () => {
+  fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
+    .then(res => res.json())
+    .then(data => displayIcon(data.categories))
+    .catch(error => console.log(error));
+};
+
+const displayIcon = (categories) => {
+
+  let val = document.getElementById('category');
+  categories.forEach(category => {
+    const card = document.createElement('div');
+    card.classList = 'card bg-base-100 w-90';
+    card.innerHTML = `<button
+            id='${category.category}'
+            onclick="loadCatagories('${category.category}')"
+            class="bg-white w-[280px] border-2 border-slate-200 text-xl text-black font-bold p-6 rounded-lg flex items-center justify-center gap-4"
+          >
+          <img src='${category.category_icon}'/>
+            <span>${category.category}</span>
+          </button>`;
+    val.append(card);
+  });
+}
+
+
+
 const loadCatagories = (categories) => {
   fetch(`https://openapi.programming-hero.com/api/peddy/category/${categories}`)
     .then((res) => res.json())
@@ -22,20 +49,34 @@ const displayAllpets = (pets) => {
     card.innerHTML = `
       <div class="border border-2 rounded-xl p-5">
         <figure class="">
-          <img src=${pet['image']} class="h-52 object-cover w-full rounded-xl" />
+          <img src=${
+            pet['image']
+          } class="h-52 object-cover w-full rounded-xl" />
         </figure>
         <div>
           <h2 class="mb-[16px] mt-[16px] text-xl font-bold">${pet.pet_name}</h2>
-          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/card.png" alt="">Breed: ${pet.breed}</p>
-          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/calendar.png" alt="">Birth: ${pet.date_of_birth}</p>
-          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/gender.png" alt="">Gender: ${pet.gender}</p>
-          <p class="flex mb-[16px]"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/dollar.png" alt="">Price: ${pet.price}</p>
+          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/card.png" alt="">Breed: ${
+            pet.breed || 'No Data Available'
+          }</p>
+          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/calendar.png" alt="">Birth: ${
+            pet.date_of_birth || 'No Data Available'
+          }</p>
+          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/gender.png" alt="">Gender: ${
+            pet.gender || 'No Data Available'
+          }</p>
+          <p class="flex mb-[16px]"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/dollar.png" alt="">Price: ${
+            pet.price || 'No Data Available'
+          }</p>
           <div class="card-actions">
             <button class="btn btn-primary1" onclick="likePet('${pet.image}')">
               <img class="w-[20px]" src="./images/like.png" alt=""/>
             </button>
-            <button onclick="OpenDetailsModal2()" class="btn btn-primary2 text-[#0E7A81] font-bold">Adopt</button>
-            <button  onclick="OpenDetailsModal(${pet.petId})" class="btn btn-primary3 text-[#0E7A81] font-bold">Details</button>
+            <button id='${'pet' + pet.petId}'
+            onclick="OpenDetailsModal2('${'pet' + pet.petId}')"
+            class="btn btn-primary2 text-[#0E7A81] font-bold">Adopt</button>
+            <button  onclick="OpenDetailsModal(${
+              pet.petId
+            })" class="btn btn-primary3 text-[#0E7A81] font-bold">Details</button>
           </div>
         </div>
       </div>
@@ -46,7 +87,15 @@ const displayAllpets = (pets) => {
 const modal = document.getElementById('my_modal_1');
 const modal2 = document.getElementById('my_modal_2');
 
-const OpenDetailsModal2 = id => {
+const isSureToAdopt = AdoptBtn => {
+  AdoptBtn.disabled = true;
+  AdoptBtn.textContent = `Adopted`;
+
+
+};
+
+const OpenDetailsModal2 = (id) => {
+  const AdoptBtn = document.getElementById(id);
   modal2.classList.add('modal-open');
   adoptData()
  for (let i = 3; i >= 1; i--) {
@@ -58,6 +107,7 @@ const OpenDetailsModal2 = id => {
    }, (4 - i) * 1000); // Delay based on the countdown step (1 second for each)
  }
   setTimeout(function () {
+    isSureToAdopt(AdoptBtn)
     modal2.classList.remove('modal-open');
   }, 3000);
 
@@ -94,16 +144,26 @@ const petData = (pet) => {
          <h2 class="mb-[16px] mt-[16px] text-xl font-bold">${pet.pet_name}</h2>
          <div class="flex">
          <div>
-          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/card.png" alt="">Breed: ${pet.breed}</p>
-          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/gender.png" alt="">Gender: ${pet.gender}</p>
+          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/card.png" alt="">Breed: ${
+            pet.breed || 'No Data Available'
+          }</p>
+          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/gender.png" alt="">Gender: ${
+            pet.gender || 'No Data Available'
+          }</p>
 
 
-          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/gender.png" alt="">Vaccinated status: ${pet.vaccinated_status}</p>
+          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/gender.png" alt="">Vaccinated status: ${
+            pet.vaccinated_status || 'No Data Available'
+          }</p>
          </div>
           <div>
-          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/calendar.png" alt="">Birth: ${pet.date_of_birth}</p>
+          <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/calendar.png" alt="">Birth: ${
+            pet.date_of_birth || 'No Data Available'
+          }</p>
 
-          <p class="flex mb-[16px]"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/dollar.png" alt="">Price: ${pet.price}</p>
+          <p class="flex mb-[16px]"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/dollar.png" alt="">Price: ${
+            pet.price || 'No Data Available'
+          }</p>
           </div>
          </div>
           <p class="flex mt-[10px] mb-[16px]">Details: ${pet.pet_details}</p>
@@ -130,7 +190,8 @@ const adoptData = adopt => {
          </div>
           <div class="modal-action">
             <form class="w-full" method="dialog">
-            <button class="btn text-white w-full bg-[#0E7A81]" onclick="CloseDetailsModal2()">Cancel</button>
+            <button id='cancelBtn' class="btn text-white w-full bg-[#0E7A81]"
+            onclick="CloseDetailsModal2()">Cancel</button>
             </form>
           </div>`;
   modalShowDiv.append(card);
@@ -142,14 +203,32 @@ const adoptData = adopt => {
 const likePet = (image) => {
   const likedContainer = document.getElementById("right-cards");
   const likedPet = document.createElement("div");
-  likedPet.classList = "p-2 w-[130px] h-[100px]";
+  likedPet.classList = 'p-2 w-[130px] h-[100px]';
   likedPet.innerHTML = `<img src="${image}" class="w-full rounded-xl h-full object-cover" />`;
   likedContainer.appendChild(likedPet);
 };
 
 // Existing category and sort functions
 const displayCatagories = (category) => {
+  const btn1 = document.getElementById('Cat');
+  const btn2 = document.getElementById('Dog');
+   const btn3 = document.getElementById('Rabbit');
+  const btn4 = document.getElementById('Bird');
+  btn1.classList.remove('bg-gray-200')
+  btn2.classList.remove('bg-gray-200')
+  btn3.classList.remove('bg-gray-200')
+  btn4.classList.remove('bg-gray-200')
+  if (category.length) {
+    const btn = document.getElementById(category[0].category)
+    btn.classList.remove('bg-white')
+    btn.classList.add('bg-gray-200')
+    console.log(btn)
+  }
+  else {
+     btn4.classList.add('bg-gray-200');
+  }
   let val = document.getElementById("loading");
+  spinner()
   val.classList.remove("hidden");
   setTimeout(function () {
     val.classList.add("hidden");
@@ -165,16 +244,30 @@ const displayCatagories = (category) => {
         card.innerHTML = `
           <div class="border border-2 rounded-xl p-5">
             <figure class="">
-              <img src=${pet["image"]} class="h-52 object-cover w-full rounded-xl" />
+              <img src=${
+                pet['image']
+              } class="h-52 object-cover w-full rounded-xl" />
             </figure>
             <div>
-              <h2 class="mb-[16px] mt-[16px] text-xl font-bold">${pet.pet_name}</h2>
-              <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/card.png" alt="">Breed: ${pet.breed}</p>
-              <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/calendar.png" alt="">Birth: ${pet.date_of_birth}</p>
-              <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/gender.png" alt="">Gender: ${pet.gender}</p>
-              <p class="flex mb-[16px]"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/dollar.png" alt="">Price: ${pet.price}</p>
+              <h2 class="mb-[16px] mt-[16px] text-xl font-bold">${
+                pet.pet_name
+              }</h2>
+              <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/card.png" alt="">Breed: ${
+                pet.breed || 'No Data Available'
+              }</p>
+              <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/calendar.png" alt="">Birth: ${
+                pet.date_of_birth || 'No Data Available'
+              }</p>
+              <p class="flex"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/gender.png" alt="">Gender: ${
+                pet.gender || 'No Data Available'
+              }</p>
+              <p class="flex mb-[16px]"> <img class="w-[20px] mr-[8px] mb-[8px]" src="./images/dollar.png" alt="">Price: ${
+                pet.price || 'No Data Available'
+              }</p>
               <div class="card-actions">
-                <button class="btn btn-primary1" onclick="likePet('${pet.image}')">
+                <button class="btn btn-primary1" onclick="likePet('${
+                  pet.image
+                }')">
                   <img class="w-[20px]" src="./images/like.png" alt=""/>
                 </button>
                 <button class="btn btn-primary2 text-[#0E7A81] font-bold">Adopt</button>
@@ -205,14 +298,30 @@ const sortByPrice = () => {
       displayAllpets(filterValue);
     })
     .catch((error) => console.log(error));
-};
+  let val = document.getElementById("loading");
+  const container1 = document.getElementById('left-cards1');
+  spinner()
+  val.classList.remove("hidden");
+  setTimeout(function () {
+    val.classList.add("hidden");
+    container1.classList.add('hidden');
+  }, 3000)
+}
 
 // Spinner function
 const spinner = () => {
-  document.getElementById("loading").style.display = "block";
+  const container1 = document.getElementById('left-cards1');
+  const container2 = document.getElementById('left-cards');
+  const container3 = document.getElementById('right-cards');
+  container1.classList.add('hidden')
+  container2.classList.add('hidden');
+  container3.classList.add('hidden');
   setTimeout(function () {
-    loadAll();
+       container1.classList.remove('hidden');
+       container2.classList.remove('hidden');
+       container3.classList.remove('hidden');
   }, 3000);
 };
 
 loadAll();
+loadIcon()
