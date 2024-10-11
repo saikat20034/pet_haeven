@@ -1,4 +1,18 @@
 // fetch and show all card on homepage
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+
+window.addEventListener('click', e => {
+  if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+    mobileMenu.classList.add('hidden');
+  }
+});
+
+
 const loadIcon = () => {
   fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
     .then(res => res.json())
@@ -279,10 +293,10 @@ const displayCatagories = (category) => {
         petsContainer.append(card);
       });
     } else {
-      petsContainer.innerHTML = `<div class="bg-gray-200 w-[1100px] rounded-3xl text-center">
-        <img class="mx-auto mt-[200px] mb-[50px]" src="./images/no-data 1.png" alt=""/>
+      petsContainer.innerHTML = `<div class="bg-gray-200 md:w-[1000px] w-[200px] rounded-3xl text-center">
+        <img class="mx-auto mt-[100px] mb-[50px]" src="./images/no-data 1.png" alt=""/>
         <h2 class="font-bold text-[32px] mb-[30px]">No Information Available</h2>
-        <p class="text-base">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        <p class="text-base mb-[100px]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
       </div>`;
     }
   }, 3000);
